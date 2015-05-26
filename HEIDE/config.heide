@@ -1,0 +1,5 @@
+{
+	"he_src" : "../HElib_master/src",
+	"max_num_subpr" : 4,
+	"display_mem_usage" : false
+}
