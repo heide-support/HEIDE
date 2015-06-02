@@ -1,0 +1,10 @@
+
+*.inc
+
+HEIDE/.idea/.name
+
+HEIDE/.idea/encodings.xml
+
+*.xml
+
+HEIDE/.idea/HEIDE.iml

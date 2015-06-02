@@ -1,5 +1,5 @@
 # distutils: language = c++
-# distutils: sources = ../HElib_Ext/HElib_Ext.cpp
+# distutils: sources = ../BGV_HE/BGV_HE.cpp
 
 from distutils.core import setup
 from distutils.extension import Extension
@@ -9,13 +9,14 @@ import os
 os.environ["CC"] = "x86_64-linux-gnu-g++"
 os.environ["CXX"] = "x86_64-linux-gnu-g++"
 
-HELIB_BASE = "../HElib/src"
+HELIB_BASE = "../HElib/src/"
+SRC_BASE = "./src/"
 
 ext_modules = [
     Extension(
         name="PyHE",
-        sources=["PyHE.pyx",
-                "../HElib_Ext/HElib_Ext.cpp",
+        sources=[SRC_BASE + "PyHE.pyx",
+                "../BGV_HE/BGV_HE.cpp",
                 HELIB_BASE + "/BenesNetwork.cpp",
                 HELIB_BASE + "/bluestein.cpp",
                 HELIB_BASE + "/CModulus.cpp",
@@ -44,8 +45,8 @@ ext_modules = [
                 HELIB_BASE + "/replicate.cpp",
                 HELIB_BASE + "/timing.cpp",
             ],
-        include_dirs=[],
-        libraries=[	"gmp",
+        include_dirs=[HELIB_BASE],
+        libraries=[ "gmp",
                     "ntl"],
         library_dirs=[],
         language="c++",
@@ -54,11 +55,27 @@ ext_modules = [
                             "-fwrapv",
                             "-O2",
                             "-Wall"],
-        )
+    ),
+    Extension(
+        name="PyPtxt",
+        sources=[SRC_BASE + "PyPtxt.py"],
+        include_dirs=[],
+        libraries=[],
+        library_dirs=[],
+        language="python",
+    ),
+    Extension(
+        name="PyCtxt",
+        sources=[SRC_BASE + "PyCtxt.py"],
+        include_dirs=[],
+        libraries=[],
+        library_dirs=[],
+        language="python",
+    )
 ]
 
 setup(
-name = 'PyHE',
-cmdclass = {'build_ext': build_ext},
-ext_modules = ext_modules,
+    name = 'PyHE',
+    cmdclass = {'build_ext': build_ext},
+    ext_modules = ext_modules,
 )

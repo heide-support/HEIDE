@@ -1,0 +1,17 @@
+from random import randrange
+
+for i in range(2):
+	$+i = [randrange(100000) for _ in range(2)]
+
+
+
+
+
+
+
+
+
+
+
+
+

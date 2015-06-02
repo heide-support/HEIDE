@@ -1,0 +1,14 @@
+numSlots = HE.numSlots()
+
+from random import randrange
+$.p0 = PyPtxt([randrange(100000) for _ in range(numSlots)], HE)
+
+&$
+
+$.p0 *= $.p0
+
+*$.p0
+
+HE.printTimers()
+HE.timersOff()
+

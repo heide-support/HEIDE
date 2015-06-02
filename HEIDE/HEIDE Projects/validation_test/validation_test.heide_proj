@@ -1,0 +1,8 @@
+{
+	"settings": {
+		"he_src": "../HElib_master/src"
+	},
+	"param_file": "./HEIDE Projects/validation_test/validation_test.heide_params",
+	"data_file": "./HEIDE Projects/validation_test/validation_test.heide_data",
+	"alg_file": "./HEIDE Projects/validation_test/validation_test.heide_alg"
+}

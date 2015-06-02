@@ -1,0 +1,8 @@
+{
+	"settings": {
+		"he_src": "../HElib_master/src"
+	},
+	"param_file": "./HEIDE Projects/timing_tests/timing_add/timing_add.heide_params",
+	"data_file": "./HEIDE Projects/timing_tests/timing_add/timing_add.heide_data",
+	"alg_file": "./HEIDE Projects/timing_tests/timing_add/timing_add.heide_alg"
+}
