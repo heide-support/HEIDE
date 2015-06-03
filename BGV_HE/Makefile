@@ -1,4 +1,4 @@
-HELIB_SRC=../HElib/src
+HELIB_SRC=$(HELIB_BASE)
 CC = g++
 CFLAGS = -g -O2 -Wfatal-errors -Wshadow -Wall -I/usr/local/include -I$(HELIB_SRC)
 LD = g++

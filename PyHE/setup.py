@@ -9,7 +9,7 @@ import os
 os.environ["CC"] = "x86_64-linux-gnu-g++"
 os.environ["CXX"] = "x86_64-linux-gnu-g++"
 
-HELIB_BASE = "../HElib/src/"
+HELIB_BASE = os.environ["HELIB_BASE"]
 SRC_BASE = "./src/"
 
 ext_modules = [
