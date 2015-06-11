@@ -1,0 +1,68 @@
+
+#    Copyright (C) 2015  Grant Frame
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+
+--------------------------------------------------------------------------------
+HOW TO INSTALL
+1. Download and build HElib (https://github.com/shaih/HElib)
+	a. install ntl as a static library
+
+2. Set HELIB_BASE environment variable
+
+	export HELIB_BASE=<HElib src folder>
+
+3. Install boost
+	
+	sudo apt-get install libboost-all-dev
+
+4. cd into the BGV_HE folder
+
+	cd ./BGV_HE/
+
+5. Compile the BGV_HE class and the tests. To run all tests run make check 
+	(this will take a long time to run)
+
+	make
+	make tests
+	make check
+
+6. Install Cython
+	
+	sudo pip install cython
+
+7. Build and Install PyHE
+
+	cd ../PyHE	
+	sudo HELIB_BASE=$HELIB_BASE python setup.py install
+
+8. Install tkinter
+	
+	sudo apt-get install python-tk
+
+9. Install psutil
+
+	sudo apt-get install python3-dev
+
+10. Install PIL
+
+	sudo apt-get install python3-imaging
+	sudo apt-get install python3-imaging-tk 
+
+11. Run HEIDE
+
+	cd ../HEIDE
+	sudo ./heide.sh
+--------------------------------------------------------------------------------

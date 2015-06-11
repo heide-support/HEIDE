@@ -1,8 +1,0 @@
-{
-	"settings": {
-		"he_src": "../HElib_master/src"
-	},
-	"param_file": "./HEIDE Projects/timing_tests/timing_cube/timing_cube.heide_params",
-	"data_file": "./HEIDE Projects/timing_tests/timing_cube/timing_cube.heide_data",
-	"alg_file": "./HEIDE Projects/timing_tests/timing_cube/timing_cube.heide_alg"
-}

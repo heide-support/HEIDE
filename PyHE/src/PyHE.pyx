@@ -1,3 +1,19 @@
+#    Copyright (C) 2015  Grant Frame
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+
 from libcpp.vector cimport vector
 from libcpp.string cimport string
 from libcpp cimport bool
@@ -72,6 +88,8 @@ cdef class PyHE:
 
         self.modulus = run_params["p"]
 
+    # for each list of size numSlots in PyPtxt object encrypt the list
+    # and then append the key to a PyCtxt object
     def encrypt(self, ptxt, fill=0):
         if not isinstance(ptxt, PyPtxt):
             raise TypeError("encrypt error ptxt wasn't of type PyPtxt")
@@ -99,6 +117,10 @@ cdef class PyHE:
 
         return ctxt
 
+    # for each key in the PyCtxt object decrypt the Ctxt corresponding to that
+    # key. Then concatenate all the lists together to create a single list.
+    # Finally slice the list to be the same size as the original list that
+    # this PyCtxt encrypted.
     def decrypt(self, ctxt):
         if not isinstance(ctxt, PyCtxt):
             raise TypeError("PyHE decrypt error: ctxt must be of type PyCtxt "
@@ -118,6 +140,8 @@ cdef class PyHE:
 
     ########################################################################
 
+    # Create a new PyCtxt object with the same initial parameters as ctxt
+    # then copy all keys over and return new PyCtxt object.
     def set(self, ctxt):
         if not isinstance(ctxt, PyCtxt):
             raise TypeError("PyHE set error: ctxt must be of type PyCtxt "
@@ -130,6 +154,7 @@ cdef class PyHE:
 
         return new_ctxt
 
+    # Perform add for PyCtxt ctxt to PyCtxt otherCtxt for each key in both
     def addCtxt(self, ctxt, otherCtxt, neg=False):
         if not isinstance(ctxt, PyCtxt):
             raise TypeError("PyHE addCtxt error: ctxt must be of type PyCtxt "
@@ -149,6 +174,7 @@ cdef class PyHE:
         for i in range(numKeys):
             self.thisptr.addCtxt(keys[i], otherKeys[i], neg)
 
+    # Perform mult for PyCtxt ctxt to PyCtxt otherCtxt for each key in both
     def multiplyBy(self, ctxt, otherCtxt):
         if not isinstance(ctxt, PyCtxt):
             raise TypeError("PyHE multiplyBy error: ctxt must be of type PyCtxt "
@@ -168,6 +194,7 @@ cdef class PyHE:
         for i in range(numKeys):
             self.thisptr.multiplyBy(keys[i], otherKeys[i])
 
+    # Perform multBy2 for PyCtxt ctxt to PyCtxt otherCtxt for each key in both
     def multiplyBy2(self, ctxt, otherCtxt1, otherCtxt2):
         if not isinstance(ctxt, PyCtxt):
             raise TypeError("PyHE multiplyBy2 error: ctxt must be of type PyCtxt "
@@ -193,6 +220,7 @@ cdef class PyHE:
         for i in range(numKeys):
             self.thisptr.multiplyBy2(keys[i], otherKeys1[i], otherKeys2[i])
 
+    # Perform square for PyCtxt ctxt for each key in it
     def square(self, ctxt):
         if not isinstance(ctxt, PyCtxt):
             raise TypeError("PyHE square error: ctxt must be of type PyCtxt "
@@ -204,6 +232,7 @@ cdef class PyHE:
         for i in range(numKeys):
             self.thisptr.square(keys[i])
 
+    # Perform cube for PyCtxt ctxt for each key in it
     def cube(self, ctxt):
         if not isinstance(ctxt, PyCtxt):
             raise TypeError("PyHE cube error: ctxt must be of type PyCtxt "
@@ -215,6 +244,7 @@ cdef class PyHE:
         for i in range(numKeys):
             self.thisptr.cube(keys[i])
 
+    # Perform negate for PyCtxt ctxt for each key in it
     def negate(self, ctxt):
         if not isinstance(ctxt, PyCtxt):
             raise TypeError("PyHE negate error: ctxt must be of type PyCtxt "
@@ -226,6 +256,7 @@ cdef class PyHE:
         for i in range(numKeys):
             self.thisptr.negate(keys[i])
 
+    # Check if ctxt == otherCtxt
     def equalsTo(self, ctxt, otherCtxt, comparePkeys=True):
         if not isinstance(ctxt, PyCtxt):
             raise TypeError("PyHE equalsTo error: ctxt must be of type PyCtxt "
@@ -249,6 +280,8 @@ cdef class PyHE:
 
     ########################################################################
 
+    # Helper Functions
+
     def numSlots(self):
         return self.thisptr.numSlots()
     def getModulus(self):
@@ -261,6 +294,8 @@ cdef class PyHE:
 
 
     ########################################################################
+
+    # Timing Functions
 
     def timersOn(self):
         self.thisptr.timersOn()
