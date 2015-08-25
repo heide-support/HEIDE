@@ -18,7 +18,8 @@ HELIB_SRC=$(HELIB_BASE)
 CC = g++
 CFLAGS = -g -O2 -Wfatal-errors -Wshadow -Wall -I/usr/local/include -I$(HELIB_SRC)
 LD = g++
-LDLIBS = -L/usr/local/lib -lntl -lgmp -lm $(HELIB_SRC)/fhe.a
+LDLIBS = -L/usr/local/lib -lntl -lgmp -lm 
+HELIB_ARCH = $(HELIB_SRC)/fhe.a
 AR = ar
 ARFLAGS = ruv
 
@@ -74,7 +75,7 @@ obj: $(OBJ)
 	$(CC) $(CFLAGS) -c $< $(LDLIBS)
 
 bgv_he.a: $(OBJ)
-	$(AR) $(ARFLAGS) bgv_he.a $(OBJ) $(HELIB_OBJ)
+	$(AR) $(ARFLAGS) bgv_he.a $(OBJ) $(HELIB_ARCH) $(HELIB_OBJ)
 
 ./%_test: %_test.cpp bgv_he.a
 	$(CC) $(CFLAGS) -o $@ $< bgv_he.a $(LDLIBS)

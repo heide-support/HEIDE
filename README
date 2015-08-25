@@ -18,7 +18,7 @@
 --------------------------------------------------------------------------------
 HOW TO INSTALL
 1. Download and build HElib (https://github.com/shaih/HElib)
-	a. install ntl as a static library
+	a. install ntl (version 9.0.0) as a shared library
 
 2. Set HELIB_BASE environment variable
 
@@ -33,11 +33,10 @@ HOW TO INSTALL
 	cd ./BGV_HE/
 
 5. Compile the BGV_HE class and the tests. To run all tests run make check 
-	(this will take a long time to run)
 
 	make
 	make tests
-	make check
+	make check (optional - this will take a long time to run)
 
 6. Install Cython
 	
@@ -47,6 +46,8 @@ HOW TO INSTALL
 
 	cd ../PyHE	
 	sudo HELIB_BASE=$HELIB_BASE python setup.py install
+	sudo ln -s /usr/local/lib/python2.7/dist-packages/PyHE.so /usr/local/lib/python3.4/dist-packages/PyHE.so
+
 
 8. Install tkinter
 	
@@ -55,13 +56,20 @@ HOW TO INSTALL
 9. Install psutil
 
 	sudo apt-get install python3-dev
+	sudo pip3 install psutil
 
 10. Install PIL
 
 	sudo apt-get install python3-imaging
 	sudo apt-get install python3-imaging-tk 
 
-11. Run HEIDE
+11. Set HEIDE parameters by altering heide.config in HEIDE directory.
+
+12. Add to LD_LIBRARY_PATH
+
+	export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+
+12. Run HEIDE
 
 	cd ../HEIDE
 	sudo ./heide.sh
