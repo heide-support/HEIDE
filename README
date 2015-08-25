@@ -19,6 +19,8 @@
 HOW TO INSTALL
 1. Download and build HElib (https://github.com/shaih/HElib)
 	a. install ntl (version 9.0.0) as a shared library
+	b. copy to /usr/lib
+		sudo ln -s /usr/local/lib/libntl.so.10 /usr/lib/libntl.so.10
 
 2. Set HELIB_BASE environment variable
 
@@ -65,9 +67,6 @@ HOW TO INSTALL
 
 11. Set HEIDE parameters by altering heide.config in HEIDE directory.
 
-12. Add to LD_LIBRARY_PATH
-
-	export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 
 12. Run HEIDE
 
