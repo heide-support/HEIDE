@@ -27,7 +27,7 @@ ARFLAGS = ruv
 HEADER = BGV_HE.h
 SRC = BGV_HE.cpp
 OBJ = BGV_HE.o 
-HELIB_OBJ = $(HELIB_SRC)/NumbTh.o $(HELIB_SRC)/timing.o $(HELIB_SRC)/bluestein.o $(HELIB_SRC)/PAlgebra.o  $(HELIB_SRC)/CModulus.o $(HELIB_SRC)/FHEContext.o $(HELIB_SRC)/IndexSet.o $(HELIB_SRC)/DoubleCRT.o $(HELIB_SRC)/FHE.o $(HELIB_SRC)/KeySwitching.o $(HELIB_SRC)/Ctxt.o $(HELIB_SRC)/EncryptedArray.o $(HELIB_SRC)/replicate.o $(HELIB_SRC)/hypercube.o $(HELIB_SRC)/matching.o $(HELIB_SRC)/powerful.o $(HELIB_SRC)/BenesNetwork.o $(HELIB_SRC)/permutations.o $(HELIB_SRC)/PermNetwork.o $(HELIB_SRC)/OptimizePermutations.o $(HELIB_SRC)/eqtesting.o $(HELIB_SRC)/polyEval.o $(HELIB_SRC)/extractDigits.o $(HELIB_SRC)/EvalMap.o $(HELIB_SRC)/OldEvalMap.o $(HELIB_SRC)/recryption.o $(HELIB_SRC)/debugging.o
+HELIB_OBJ = $(HELIB_SRC)/NumbTh.o $(HELIB_SRC)/timing.o $(HELIB_SRC)/bluestein.o $(HELIB_SRC)/PAlgebra.o  $(HELIB_SRC)/CModulus.o $(HELIB_SRC)/FHEContext.o $(HELIB_SRC)/IndexSet.o $(HELIB_SRC)/DoubleCRT.o $(HELIB_SRC)/FHE.o $(HELIB_SRC)/KeySwitching.o $(HELIB_SRC)/Ctxt.o $(HELIB_SRC)/EncryptedArray.o $(HELIB_SRC)/replicate.o $(HELIB_SRC)/hypercube.o $(HELIB_SRC)/matching.o $(HELIB_SRC)/powerful.o $(HELIB_SRC)/BenesNetwork.o $(HELIB_SRC)/permutations.o $(HELIB_SRC)/PermNetwork.o $(HELIB_SRC)/OptimizePermutations.o $(HELIB_SRC)/eqtesting.o $(HELIB_SRC)/polyEval.o $(HELIB_SRC)/extractDigits.o $(HELIB_SRC)/EvalMap.o $(HELIB_SRC)/OldEvalMap.o $(HELIB_SRC)/recryption.o $(HELIB_SRC)/debugging.o $(HELIB_SRC)/matrix.o
 TESTPROGS = validation_test bgv_he_timing_test helib_timing_test
 
 TIMING_TESTS = add sub mul square cube neg eq rotate shift
